@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPI - Clima</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Consulta de Clima</h1>
+        <input type="text" id="cidade" placeholder="Digite o nome da cidade">
+        <button onclick="buscarClima()">Buscar</button>
+        <button onclick="salvarFavorito()">⭐ Favoritar</button>
+        <div id="resultado"></div>
+        
+        <h2>Previsão para os próximos dias</h2>
+        <div id="previsao"></div>
+
+        <h2>Histórico de Pesquisas</h2>
+        <ul id="historico"></ul>
+
+        <h2>Cidades Favoritas</h2>
+        <ul id="favoritos"></ul>
+    </div>
+
+    <h2>Envie seu Feedback</h2>
+<input type="text" id="nome" placeholder="Seu Nome">
+<textarea id="mensagem" placeholder="Digite seu feedback"></textarea>
+<button onclick="enviarFeedback()">Enviar</button>
+<div id="status"></div>
+
+<div id="feedback-container">
+    <h2>Feedbacks dos Usuários</h2>
+    <ul id="lista-feedbacks"></ul>
+</div>
+</body>
+</html>

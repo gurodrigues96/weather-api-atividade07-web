@@ -7,6 +7,9 @@ import Favorites from './components/Favorites';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import './App.css';
+import { db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 
 const API_KEY = 'c9e235a23b644fd3b0d144321250303';
 const BASE_URL = 'https://api.weatherapi.com/v1';
@@ -73,6 +76,7 @@ function App() {
     localStorage.setItem("favoritos", JSON.stringify(novosFavoritos));
   };
 
+  
   const enviarFeedback = async (nome, mensagem) => {
     if (!nome || !mensagem) {
       alert("Preencha todos os campos!");
@@ -80,30 +84,27 @@ function App() {
     }
   
     try {
-      const resposta = await fetch('/api/salvarFeedback', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, mensagem }),
+      // Adiciona um novo documento à coleção "feedbacks"
+      const docRef = await addDoc(collection(db, 'feedbacks'), {
+        nome,
+        mensagem,
+        data: new Date().toISOString(),
       });
-  
-      if (resposta.ok) {
-        alert("Feedback enviado com sucesso!");
-        carregarFeedbacks();
-      } else {
-        alert("Erro ao enviar feedback.");
-      }
+      alert("Feedback enviado com sucesso!");
+      carregarFeedbacks(); // Recarrega a lista de feedbacks
     } catch (erro) {
-      alert("Erro ao conectar ao servidor.");
+      alert("Erro ao enviar feedback.");
     }
   };
 
   const carregarFeedbacks = async () => {
     try {
-      const resposta = await fetch('/api/carregarFeedbacks');
-      if (!resposta.ok) {
-        throw new Error("Erro ao carregar feedbacks.");
-      }
-      const feedbacks = await resposta.json();
+      // Obtém todos os documentos da coleção "feedbacks"
+      const querySnapshot = await getDocs(collection(db, 'feedbacks'));
+      const feedbacks = [];
+      querySnapshot.forEach((doc) => {
+        feedbacks.push({ id: doc.id, ...doc.data() });
+      });
       setFeedbacks(feedbacks); // Atualiza o estado com os feedbacks carregados
     } catch (erro) {
       alert("Erro ao carregar feedbacks.");

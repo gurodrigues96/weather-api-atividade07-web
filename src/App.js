@@ -78,19 +78,17 @@ function App() {
       alert("Preencha todos os campos!");
       return;
     }
-
-    const feedback = { nome, mensagem, data: new Date().toISOString() };
-
+  
     try {
-      const resposta = await fetch("http://localhost:3000/feedbacks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(feedback),
+      const resposta = await fetch('/api/salvarFeedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, mensagem }),
       });
-
+  
       if (resposta.ok) {
         alert("Feedback enviado com sucesso!");
-        carregarFeedbacks(); // Recarrega a lista de feedbacks após o envio
+        carregarFeedbacks();
       } else {
         alert("Erro ao enviar feedback.");
       }
@@ -101,12 +99,12 @@ function App() {
 
   const carregarFeedbacks = async () => {
     try {
-      const resposta = await fetch("http://localhost:3000/feedbacks");
+      const resposta = await fetch('/api/carregarFeedbacks');
       if (!resposta.ok) {
         throw new Error("Erro ao carregar feedbacks.");
       }
       const feedbacks = await resposta.json();
-      setFeedbacks(feedbacks);
+      setFeedbacks(feedbacks); // Atualiza o estado com os feedbacks carregados
     } catch (erro) {
       alert("Erro ao carregar feedbacks.");
     }

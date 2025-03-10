@@ -8,7 +8,7 @@ import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import './App.css';
 import { db } from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 
 const API_KEY = 'c9e235a23b644fd3b0d144321250303';
@@ -124,5 +124,16 @@ function App() {
     </div>
   );
 }
+
+  const testFirestore = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'test'));
+    console.log("Conexão com o Firestore bem-sucedida!");
+  } catch (erro) {
+    console.error("Erro ao conectar ao Firestore:", erro);
+  }
+};
+
+testFirestore();
 
 export default App;

@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Gustavo Rodrigues de Oliveira
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição e Objetivo do Projeto
+Este projeto é uma aplicação web que permite aos usuários consultar informações meteorológicas em tempo real e previsões para os próximos dias, utilizando a Weather API (https://www.weatherapi.com/). Além disso, a aplicação inclui funcionalidades como:
 
-## Available Scripts
+- **Consulta de clima**: Obtenha informações sobre temperatura, condições climáticas e umidade para qualquer cidade.
+- **Previsão para os próximos dias**: Veja a previsão do tempo para os próximos 3 dias.
+- **Histórico de pesquisas**: Armazene e visualize as cidades pesquisadas anteriormente.
+- **Cidades favoritas**: Marque cidades como favoritas para acesso rápido.
+- **Feedback dos usuários**: Envie e visualize feedbacks de outros usuários.
 
-In the project directory, you can run:
+O objetivo deste projeto é demonstrar a integração de uma API pública (Weather API) em uma aplicação React, além de explorar funcionalidades como armazenamento local (localStorage) e integração com Firebase para persistência de dados. *(Caso o site não esteja funcionando, há uma outra versão na qual é possível rodar de forma que acesse um banco de dados local na máquina.)*
 
-### `npm start`
+### Repositório Alternativo
+[GitHub](https://github.com/gurodrigues96/-07-API-REST---Gustavo-Rodrigues---WeatherAPI)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Local Hospedado Alternativo
+[Netlify](https://weatherapitest07.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tecnologias Utilizadas
+### Linguagens:
+- JavaScript (React)
+- HTML
+- CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Ferramentas e Bibliotecas:
+- React (Framework frontend)
+- Firebase (Banco de dados Firestore para armazenar feedbacks)
+- Weather API (API pública para dados meteorológicos)
+- Vercel (Hospedagem do frontend)
+- Render/Heroku (Hospedagem do backend)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como Executar o Projeto
+### Pré-requisitos
+- Node.js instalado (versão 16 ou superior)
+- Conta no Firebase (para usar o Firestore)
+- Chave de API da Weather API ([Obter chave](https://www.weatherapi.com/))
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Passos para Execução
+1. **Clone o repositório:**
+   ```sh
+   git clone https://github.com/seu-usuario/weather-app.git
+   cd weather-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Instale as dependências:**
+   ```sh
+   npm install
+   ```
 
-### `npm run eject`
+3. **Configure o Firebase:**
+   - Crie um projeto no Firebase ([Firebase Console](https://console.firebase.google.com/)).
+   - Adicione um aplicativo web e obtenha as credenciais.
+   - Crie um arquivo `.env` na raiz do projeto e adicione as credenciais do Firebase:
+     ```sh
+     REACT_APP_API_KEY=SUA_API_KEY
+     REACT_APP_AUTH_DOMAIN=SEU_DOMINIO.firebaseapp.com
+     REACT_APP_PROJECT_ID=SEU_PROJECT_ID
+     REACT_APP_STORAGE_BUCKET=SEU_STORAGE_BUCKET
+     REACT_APP_MESSAGING_SENDER_ID=SEU_SENDER_ID
+     REACT_APP_APP_ID=SEU_APP_ID
+     ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Inicie o servidor de desenvolvimento:**
+   ```sh
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Acesse a aplicação no navegador:**
+   [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Créditos
+- [Weather API](https://www.weatherapi.com/)
+- [Firebase](https://firebase.google.com/)
+- [React Documentation](https://reactjs.org/)
+- [Vercel](https://vercel.com/)
+- [Render](https://render.com/)
+- [Heroku](https://www.heroku.com/)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licença
+Este projeto está licenciado sob a **MIT License**. Consulte o arquivo `LICENSE` para mais detalhes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Contato
+- **Nome**: Gustavo Rodrigues de Oliveira
+- **E-mail**: gustavoro2001@gmail.com
+- **GitHub**: [gurodrigues96](https://github.com/gurodrigues96)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

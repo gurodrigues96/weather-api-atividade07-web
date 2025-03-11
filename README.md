@@ -1,4 +1,4 @@
-#Gustavo Rodrigues de Oliveira
+####Gustavo Rodrigues de Oliveira
 
 Descrição e Objetivo do Projeto
 Este projeto é uma aplicação web que permite aos usuários consultar informações meteorológicas em tempo real e previsões para os próximos dias, utilizando a Weather API (https://www.weatherapi.com/). Além disso, a aplicação inclui funcionalidades como:

@@ -1,21 +1,18 @@
-# Gustavo Rodrigues de Oliveira
-
-## Descrição e Objetivo do Projeto
+#Gustavo Rodrigues de Oliveira
+Descrição e Objetivo do Projeto
 Este projeto é uma aplicação web que permite aos usuários consultar informações meteorológicas em tempo real e previsões para os próximos dias, utilizando a Weather API (https://www.weatherapi.com/). Além disso, a aplicação inclui funcionalidades como:
 
-- **Consulta de clima**: Obtenha informações sobre temperatura, condições climáticas e umidade para qualquer cidade.
-- **Previsão para os próximos dias**: Veja a previsão do tempo para os próximos 3 dias.
-- **Histórico de pesquisas**: Armazene e visualize as cidades pesquisadas anteriormente.
-- **Cidades favoritas**: Marque cidades como favoritas para acesso rápido.
-- **Feedback dos usuários**: Envie e visualize feedbacks de outros usuários.
+Consulta de clima: Obtenha informações sobre temperatura, condições climáticas e umidade para qualquer cidade.
 
-O objetivo deste projeto é demonstrar a integração de uma API pública (Weather API) em uma aplicação React, além de explorar funcionalidades como armazenamento local (localStorage) e integração com Firebase para persistência de dados. *(Caso o site não esteja funcionando, há uma outra versão na qual é possível rodar de forma que acesse um banco de dados local na máquina.)*
+Previsão para os próximos dias: Veja a previsão do tempo para os próximos 3 dias.
 
-### Repositório Alternativo
-[GitHub](https://github.com/gurodrigues96/-07-API-REST---Gustavo-Rodrigues---WeatherAPI)
+Histórico de pesquisas: Armazene e visualize as cidades pesquisadas anteriormente.
 
-### Local Hospedado Alternativo
-[Netlify](https://weatherapitest07.netlify.app/)
+Cidades favoritas: Marque cidades como favoritas para acesso rápido.
+
+Feedback dos usuários: Envie e visualize feedbacks de outros usuários.
+
+O objetivo deste projeto é demonstrar a integração de uma API pública (Weather API) em uma aplicação React, além de explorar funcionalidades como armazenamento local (localStorage) e integração com um backend local usando JSON Server para persistência de dados.
 
 ---
 

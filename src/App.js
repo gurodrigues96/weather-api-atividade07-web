@@ -7,9 +7,6 @@ import Favorites from './components/Favorites';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import './App.css';
-import { db } from './firebase';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
-
 
 const API_KEY = 'c9e235a23b644fd3b0d144321250303';
 const BASE_URL = 'https://api.weatherapi.com/v1';
@@ -76,36 +73,40 @@ function App() {
     localStorage.setItem("favoritos", JSON.stringify(novosFavoritos));
   };
 
-  
   const enviarFeedback = async (nome, mensagem) => {
     if (!nome || !mensagem) {
       alert("Preencha todos os campos!");
       return;
     }
-  
+
+    const feedback = { nome, mensagem, data: new Date().toISOString() };
+
     try {
-      // Adiciona um novo documento à coleção "feedbacks"
-      const docRef = await addDoc(collection(db, 'feedbacks'), {
-        nome,
-        mensagem,
-        data: new Date().toISOString(),
+      const resposta = await fetch("http://localhost:3000/feedbacks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(feedback),
       });
-      alert("Feedback enviado com sucesso!");
-      carregarFeedbacks(); // Recarrega a lista de feedbacks
+
+      if (resposta.ok) {
+        alert("Feedback enviado com sucesso!");
+        carregarFeedbacks(); // Recarrega a lista de feedbacks após o envio
+      } else {
+        alert("Erro ao enviar feedback.");
+      }
     } catch (erro) {
-      alert("Erro ao enviar feedback.");
+      alert("Erro ao conectar ao servidor.");
     }
   };
 
   const carregarFeedbacks = async () => {
     try {
-      // Obtém todos os documentos da coleção "feedbacks"
-      const querySnapshot = await getDocs(collection(db, 'feedbacks'));
-      const feedbacks = [];
-      querySnapshot.forEach((doc) => {
-        feedbacks.push({ id: doc.id, ...doc.data() });
-      });
-      setFeedbacks(feedbacks); // Atualiza o estado com os feedbacks carregados
+      const resposta = await fetch("http://localhost:3000/feedbacks");
+      if (!resposta.ok) {
+        throw new Error("Erro ao carregar feedbacks.");
+      }
+      const feedbacks = await resposta.json();
+      setFeedbacks(feedbacks);
     } catch (erro) {
       alert("Erro ao carregar feedbacks.");
     }
@@ -124,16 +125,5 @@ function App() {
     </div>
   );
 }
-
-  const testFirestore = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, 'test'));
-    console.log("Conexão com o Firestore bem-sucedida!");
-  } catch (erro) {
-    console.error("Erro ao conectar ao Firestore:", erro);
-  }
-};
-
-testFirestore();
 
 export default App;

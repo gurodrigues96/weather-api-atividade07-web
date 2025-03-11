@@ -18,6 +18,7 @@ O objetivo deste projeto é demonstrar a integração de uma API pública (Weath
 ![Captura de Tela da Aplicação](assets/images/screenshot1.png)
 ![Captura de Tela da Aplicação](assets/images/screenshot2.png)
 ![Captura de Tela da Aplicação](assets/images/screenshot3.png)
+![Captura de Tela da Aplicação](assets/images/screenshot4.png)
 
 Aqui está uma prévia da aplicação em funcionamento.
 
